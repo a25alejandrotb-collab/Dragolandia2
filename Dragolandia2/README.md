@@ -80,3 +80,5 @@ direction TB
     Bosque "1" -- "0..*" Monstruo
     Bosque "1" -- "0..1" Dragon
 ```
+Ampliacion del juego:
+Yo de ampliacion pondria que los monstruos pueden atacar al dragon y este morir y tambien que puedan haber hordas de enemigos, asi como atacan varios magos a la vez que te puedan atacar varios monstruos a la vez
