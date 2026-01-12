@@ -2,15 +2,15 @@ package com.example;
 
 import java.util.List;
 
-import com.example.Controlador.ControladorBosque;
-import com.example.Controlador.ControladorMago;
-import com.example.Controlador.ControladorMonstruo;
-import com.example.Vista.Combate;
-import com.example.Modelo.Bosque;
-import com.example.Modelo.Mago;
-import com.example.Modelo.Monstruo;
-import com.example.Modelo.Dragon;
-import com.example.Util.HibernateUtil;
+import com.example.controlador.ControladorBosque;
+import com.example.controlador.ControladorMago;
+import com.example.controlador.ControladorMonstruo;
+import com.example.modelo.Bosque;
+import com.example.modelo.Dragon;
+import com.example.modelo.Mago;
+import com.example.modelo.Monstruo;
+import com.example.util.HibernateUtil;
+import com.example.vista.Combate;
 
 /**
  * Clase principal del juego Dragolandia.
@@ -25,13 +25,13 @@ public class Main {
         // Vista/Utilidad para crear objetos de ejemplo
         Combate combate = new Combate();
 
-        // Controladores (encapsulan operaciones CRUD sobre las entidades)
+        // Controladores
         ControladorMago Cmago = new ControladorMago();
         ControladorMonstruo Cmonstruo = new ControladorMonstruo();
         ControladorBosque Cbosque = new ControladorBosque();
 
         // 1. Crear magos y persistirlos
-        // `Combate.crearMagos()` devuelve una lista de magos con sus conjuros
+        // Combate.crearMagos() devuelve una lista de magos con sus conjuros
         List<Mago> magos = combate.crearMagos();
         System.out.println("=== MAGOS CREADOS ===");
         for (Mago m : magos) {
@@ -73,9 +73,9 @@ public class Main {
         Monstruo monstruoJefe = bosque.getMonstruoJefe();
 
         // Encabezado de la simulación, con repeat repetimos un signo cierto numeros de veces, las que nosostros indiquemos
-        System.out.println("" + "=".repeat(10));
+        System.out.println("" + "=".repeat(20));
         System.out.println("COMIENZA LA BATALLA");
-        System.out.println("=".repeat(10));
+        System.out.println("=".repeat(20));
 
         // 7. Simulación de la batalla: bucle principal por turnos
         int turno = 1;
@@ -85,10 +85,10 @@ public class Main {
         while (batallaContinua) {
             // 7.a Condición de fin de partida
             if (magos.isEmpty() || bosque.getMonstruos().isEmpty()) {
-                System.out.println("" + "=".repeat(10));
+                System.out.println("" + "=".repeat(20));
                 System.out.println("FIN DE LA PARTIDA");
-                System.out.println("=".repeat(10));
-                
+                System.out.println("=".repeat(20));
+
                 if (magos.isEmpty()) {
                     System.out.println("No quedan magos. El bosque esta dominado por los monstruos.");
                 } else {
@@ -169,7 +169,5 @@ public class Main {
         }
         System.out.println("=".repeat(60));
 
-        // 9. Cerrar recursos de Hibernate (sesiones / conexión a BD)
-        HibernateUtil.shutdown();
     }
 }
