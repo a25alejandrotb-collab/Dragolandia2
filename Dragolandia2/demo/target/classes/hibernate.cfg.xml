@@ -30,7 +30,6 @@
         <mapping class="com.example.Modelo.BoladeNieve"/>
         <mapping class="com.example.Modelo.Rayo"/>
         <mapping class="com.example.Modelo.Mordisco"/>
-
         
     </session-factory>
 </hibernate-configuration>

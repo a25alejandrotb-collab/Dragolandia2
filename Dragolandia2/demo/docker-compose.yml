@@ -1,20 +1,20 @@
-version: "3.8"
 
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: mysql_jpa
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dragolandia
-      MYSQL_USER: dam2user
-      MYSQL_PASSWORD: 1234..
+      MYSQL_DATABASE: lambonadas
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+  
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -28,4 +28,4 @@ services:
       - "8080:80"
 
 volumes:
- mysql_data:
+  mysql_data:
